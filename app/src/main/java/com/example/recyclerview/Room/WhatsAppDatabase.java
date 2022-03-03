@@ -8,4 +8,5 @@ import com.example.recyclerview.Recyclerview.WhatsAppModel;
 @Database(entities = {WhatsAppModel.class}, version = 1, exportSchema = false)
 public abstract class WhatsAppDatabase extends RoomDatabase {
     public abstract WhatsAppDOA whatsAppDOA();
+
 }

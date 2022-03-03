@@ -12,11 +12,16 @@ import java.util.Date;
 @Entity(tableName = "WhatsAppRoom")
 public class WhatsAppModel implements Serializable {
     @PrimaryKey(autoGenerate = true)
-    private int id;
-    private int image;
-    private String message, name;
+    public int id;
+
+    public int image;
+    public String message;
+    public String name;
     @Ignore
-    private Date time;
+    public Date time;
+
+    public WhatsAppModel() {
+    }
 
     public WhatsAppModel(int image, String name, String message, Date time) {
         this.image = image;
@@ -24,6 +29,23 @@ public class WhatsAppModel implements Serializable {
         this.name = name;
         this.time = time;
     }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setImage(int image) {
+        this.image = image;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
+    }
+
+    public void setTime(Date time) {
+        this.time = time;
+    }
+
 
     public int getImage() {
         return image;
