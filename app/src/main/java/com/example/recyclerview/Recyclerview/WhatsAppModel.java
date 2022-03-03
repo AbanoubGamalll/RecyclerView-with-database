@@ -1,13 +1,21 @@
-package com.example.recyclerview;
+package com.example.recyclerview.Recyclerview;
+
+import androidx.room.Entity;
+import androidx.room.Ignore;
+import androidx.room.PrimaryKey;
 
 import java.io.Serializable;
 import java.text.SimpleDateFormat;
 import java.time.format.DateTimeFormatter;
 import java.util.Date;
 
+@Entity(tableName = "WhatsAppRoom")
 public class WhatsAppModel implements Serializable {
+    @PrimaryKey(autoGenerate = true)
+    private int id;
     private int image;
     private String message, name;
+    @Ignore
     private Date time;
 
     public WhatsAppModel(int image, String name, String message, Date time) {

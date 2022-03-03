@@ -10,7 +10,7 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.RecyclerView">
         <activity
-            android:name=".InsidePageWhatsapp"
+            android:name=".Recyclerview.InsidePageWhatsapp"
             android:exported="false" />
         <activity
             android:name=".WhatsappMainActivity"

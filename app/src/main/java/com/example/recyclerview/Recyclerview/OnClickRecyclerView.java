@@ -1,6 +1,5 @@
-package com.example.recyclerview;
+package com.example.recyclerview.Recyclerview;
 
 public interface OnClickRecyclerView {
     void onclick(int position);
-
 }

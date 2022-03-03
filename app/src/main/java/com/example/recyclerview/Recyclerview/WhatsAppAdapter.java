@@ -1,6 +1,5 @@
-package com.example.recyclerview;
+package com.example.recyclerview.Recyclerview;
 
-import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +8,8 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+import com.example.recyclerview.R;
+
 import java.util.List;
 
 import de.hdodenhof.circleimageview.CircleImageView;
