@@ -7,6 +7,7 @@ import androidx.room.Room;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.Toast;
 
 import com.example.recyclerview.Recyclerview.InsidePageWhatsapp;
 import com.example.recyclerview.Recyclerview.OnClickRecyclerView;
@@ -25,7 +26,6 @@ public class WhatsappMainActivity extends AppCompatActivity implements OnClickRe
     RecyclerView recyclerView;
     WhatsAppAdapter adapter;
     List<WhatsAppModel> list = new ArrayList<>();
-    WhatsAppDatabase whatsAppDatabase;
 
 
     @Override
@@ -36,21 +36,30 @@ public class WhatsappMainActivity extends AppCompatActivity implements OnClickRe
 
         ////////////////////////////////////////////////////////////////    room
 
-//
-//        WhatsAppDatabase db = Room.databaseBuilder(getApplicationContext(), WhatsAppDatabase.class, "WhatsAppRoom").build();
-//
-//        whatsAppDatabase.whatsAppDOA().InsertMessage(new WhatsAppModel(R.drawable.prof, "Abanoub", des, new Date()));
-//        whatsAppDatabase.whatsAppDOA().InsertMessage(new WhatsAppModel(R.drawable.prof, "Abanoub", des, new Date()));
-//        whatsAppDatabase.whatsAppDOA().InsertMessage(new WhatsAppModel(R.drawable.prof, "Abanoub", des, new Date()));
-//        whatsAppDatabase.whatsAppDOA().InsertMessage(new WhatsAppModel(R.drawable.prof, "Abanoub", des, new Date()));
-//
-//        list = whatsAppDatabase.whatsAppDOA().DBList();
 
+        WhatsAppDatabase db = Room.databaseBuilder(getApplicationContext(), WhatsAppDatabase.class, "WhatsAppRoom").allowMainThreadQueries().build();
+       // db.whatsAppDOA().DeleteAll();
+
+//        db.whatsAppDOA().InsertMessage(new WhatsAppModel(R.drawable.prof, "Abanoub 0", des, new Date()));
+//        db.whatsAppDOA().InsertMessage(new WhatsAppModel(R.drawable.prof, "Abanoub 1", des, new Date()));
+//        db.whatsAppDOA().InsertMessage(new WhatsAppModel(R.drawable.prof, "Abanoub 2", des, new Date()));
+//        db.whatsAppDOA().InsertMessage(new WhatsAppModel(R.drawable.prof, "Abanoub 3", des, new Date()));
+//        db.whatsAppDOA().InsertMessage(new WhatsAppModel(R.drawable.prof, "Abanoub 4", des, new Date()));
+//        db.whatsAppDOA().InsertMessage(new WhatsAppModel(R.drawable.prof, "Abanoub 5", des, new Date()));
+//        db.whatsAppDOA().InsertMessage(new WhatsAppModel(R.drawable.prof, "Abanoub 6", des, new Date()));
+//        db.whatsAppDOA().InsertMessage(new WhatsAppModel(R.drawable.prof, "Abanoub 7", des, new Date()));
+
+
+
+
+
+
+        list = db.whatsAppDOA().DBList();
 
         ////////////////////////////////////////////////    recyclerview
 
         recyclerView = findViewById(R.id.RecyclerView);
-        adapter = new WhatsAppAdapter(list, this);
+        adapter = new WhatsAppAdapter( list, this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(getApplicationContext()));
         ////////////////////////////////////////////////////////////////
@@ -60,6 +69,7 @@ public class WhatsappMainActivity extends AppCompatActivity implements OnClickRe
     @Override
     public void onclick(int position) {
         Intent intent = new Intent(this, InsidePageWhatsapp.class);
+        intent.putExtra("clicked", list.get(position));
         startActivity(intent);
     }
 
