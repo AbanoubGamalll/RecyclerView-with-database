@@ -18,7 +18,9 @@ public class InsidePageWhatsapp extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_inside_page_whatsapp);
+
         WhatsAppModel model = (WhatsAppModel) getIntent().getExtras().getSerializable("clicked");
+
         image = findViewById(R.id.circleImageView);
         image.setImageResource(model.getImage());
         message = findViewById(R.id.usermessage);
